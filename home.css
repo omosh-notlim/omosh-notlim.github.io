@@ -1,0 +1,655 @@
+html{
+	scroll-behavior: smooth;
+}
+*{
+	margin: 0;
+	padding: 0;
+	/*user-select: none;*/
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+body{
+	background: #fff;
+	overflow-x: hidden;
+}
+
+/*---------side bar-------*/
+
+.sidebar{
+	position: fixed;
+	width: 230px;
+	height: 110vh;
+	/*left: -270px;*/
+	background: #fff;
+	box-shadow: 0 0 10px 10px #e6e6e6;
+}
+.sidebar.show{
+	left: 0;
+}
+
+.btn{
+	position: fixed;
+	top: 15px;
+	left: 45px;
+	height: 45px;
+	width: 45px;
+	text-align: center;
+	background: /*#1b1b1b*/ #fff;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: left .5s ease;
+}
+.btn.click{
+	left: 275px;
+}
+
+.btn .bi-list{
+	color: #1b1b1b;
+	font-size: 28px;
+	line-height: 45px;
+}
+.btn.click .bi-list{
+	display: none;
+}
+
+.btn .bi-x{
+	display: none;
+}
+.btn.click .bi-x{
+	display: block;
+	color: #1b1b1b;
+	font-size: 28px;
+	line-height: 45px;
+}
+
+.sidebar .text{
+	color: #0066ff;
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 55px;
+	text-align: center;
+	letter-spacing: 1px;
+	margin-top: 50px;
+	/*background: #1e1e1e;*/
+}
+.sidebar .text .image{
+	margin-bottom: -50px;
+}
+.sidebar .text .image img{
+	width: 100px;
+}
+.sidebar .text p{
+	font-size: 10px;
+}
+.dash,
+.house-mng,
+.user-mng,
+.profile-mng{
+	background: #00cccc;
+
+}
+nav{
+	margin: auto;
+}
+nav ul{
+	margin-top: 30px;
+	background: #fff;
+	/*height: 40%;*/
+	width: 60%;
+	margin-left: 50px;
+	list-style: none;
+	box-shadow: 0 0 10px 10px #e6e6e6;
+}
+
+nav ul li{
+	line-height: 50px;
+	border-bottom: 3px solid #e6e6e6;
+}
+.focus{
+	background-color: #00e6e6;
+}
+nav ul li:hover{
+	background-color: #80ffe5;
+}
+nav ul li:last-child{
+	/*border-bottom: 2px solid rgba(10,10,255,0.6);*/
+}
+
+nav ul li a{
+	color: #000;
+	text-decoration: none;
+	font-size: 16px;
+	padding-left: 40px;
+	font-weight: 400px;
+	display: block;
+	width: 100%;
+	border-left: 4px solid transparent;
+}
+nav ul li a .bi-caret-down-fill{
+	font-size: 10px;
+	padding-left: 20px;
+}
+
+nav ul li.active a{
+	color: #fff;
+	background: #00cccc;
+	border-left-color: #fff;
+}
+
+nav ul ul{
+	position: static;
+	display: none;
+}
+
+
+
+nav ul ul li{
+	line-height: 37px;
+	border-bottom: none;
+}
+
+nav ul ul li a{
+	color: #e6e6e6;
+	font-size: 17px;
+	padding-left: 80px;
+}
+
+nav ul li.active ul li a{
+	color: #e6e6e6;
+	background: #1b1b1b;
+	border-left-color: transparent;
+}
+
+nav ul ul li a:hover{
+	color: #fff!important;
+	background: #00e6e6!important;
+}
+
+/*.side-navbar ul hr{
+	margin-left: -36px;
+}*/
+
+
+
+/*---------content area--------*/
+.content-area{
+	margin-left: 230px;
+	margin-top: -10px;
+	width: 80%;
+	display: flex;
+	flex-wrap: wrap;
+	background-color: #fff;
+}
+
+.wrapper{
+	padding: 100px 50px;
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	/*flex-direction: column;*/
+	/*overflow: hidden;*/
+	/*background-color: rgb(230, 230, 230);*/
+}
+
+.home-pg{
+	height: 101.5vh;
+	background: #262626;
+
+	margin-left: 230px;
+	margin-top: -10px;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	/*overflow-x: hidden;*/
+}
+
+.home-pg2{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+.home-center{
+	display: flex;
+	flex-direction: column;
+}
+
+.home-center .static-text{
+	color: #fff;
+	font-size: 40px;
+	font-weight: 400;
+}
+
+.home-center .dynamic-text{
+	margin-left: 15px;
+	height: 100px;
+	line-height: 100px;
+	/*background-color: red;*/
+	overflow: hidden;
+}
+
+.dynamic-text li{
+	list-style: none;
+	font-size: 24px; /*dd*/
+	font-weight: 500;
+	color: pink;
+	position: relative;
+	top: 0;
+	animation: slide 9s steps(3) infinite;
+}
+
+@keyframes slide{
+	100%{
+		top: -300px;
+	}
+}
+
+
+.dynamic-text li span{
+	position: relative;
+}
+
+.dynamic-text li span::after{
+	content:"";
+	left: 0;
+	top: 4px;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background: #262626;
+	border-left: 2px solid #262626;
+	animation: typing 3s steps(19) infinite;
+}
+
+@keyframes typing{
+	100%{
+		left:40%;
+		margin: 0 -35px 0 200px;
+	}
+}
+
+
+/*---------------about page----------------*/
+.wrapper .about-p{
+	margin-bottom: 30px;
+	color: #6b6b47;
+	line-height: 1.7em;
+	font-size: 28px;
+	margin-left: 80px;
+	text-shadow: 4px 4px 8px #ccccb3;
+	letter-spacing: 1px;
+	font-weight: 600;
+}
+
+.about{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	width: 100%;
+}
+
+.about .image{
+	flex-basis: 40%;
+}
+
+.about .image img{
+	width: 100%;
+	height: 370px;
+	border-radius: 50%;
+}
+.about-content{
+	/*background: red;*/
+	/*min-width: 350px;*/
+	flex-basis: 40%;
+}
+.about-content .buttons{
+	display: flex;
+	justify-content: space-between;
+	padding: 3px;
+	width: 100%;
+	color: #000;
+	border-bottom: 2px solid #4d4d4d;
+}
+.about-content .buttons button{
+	border: none;
+	background-color: #fff;
+	width: 50px;
+	cursor: pointer;
+	font-size: 17px;
+	letter-spacing: 1px;
+	font-weight: 600;
+	color: #404040;
+}
+
+hr{
+	width: 100%;
+	text-align: center;
+}
+
+.blocks{
+	display: flex;
+}
+#btn_diva{
+	color: #00e6e6;
+}
+.diva{
+	display: block;
+	margin-top: 10px;
+	flex-basis: 99%;
+	/*background-color: red;*/
+	color: #666666;
+	letter-spacing: 1px;
+	font-size: 17px;
+	line-height: 1.4em;
+}
+#divb,
+#divc{
+	display: none;
+}
+.diva .about-p-2{
+	font-size: 17px;
+	padding-right: 10px;
+	margin-left: 5px;
+}
+
+.contact-redirect{
+	width: 100px;
+	height: 30px;
+	border: none;
+	background: #00cca3;
+	color: #fff;
+	font-size: 15px;
+	line-height: 1.2em;
+	letter-spacing: 1px;
+	border-radius: 3px;
+	padding: 5px;
+	cursor: pointer;
+}
+.contact-redirect:hover{
+	transform: scale(1.1);
+}
+
+.profile{
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.diva .profile p {
+	flex-basis: 100%;
+	line-height: 3em;
+	font-size: 15px;
+}
+.diva .profile p .label{
+	font-weight: 650;
+}
+
+.diva .progress-div label{
+	line-height: 2em;
+	font-size: 14px;
+}
+
+/* For Firefox */
+progress::-moz-progress-bar {
+    background: #00e6e6;
+    border-radius: 0 5px 0 0;
+    height: 7px;
+}
+/* For Chrome or Safari */
+progress::-webkit-progress-value {
+    background: #00e6e6;
+    border-radius: 0 5px 5px 0;
+    height: 7px;
+}
+/* For IE10 */
+progress {
+    background: #00e6e6;
+    border-radius: 0 5px 0 0;
+    height: 7px;
+}
+
+
+
+/*-------------contact page------------*/
+.contact-page{
+	margin-top: 30px;
+}
+.message{
+	flex-basis: 45%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	flex-direction: column;
+	max-width: 500px;
+	/*background-color: red;*/
+}
+
+.message h4{
+	color: #6b6b47;
+	font-size: 28px;
+	line-height: 2em;
+	text-shadow: 4px 4px 8px #ccccb3;
+	letter-spacing: 1px;
+	font-weight: 600;
+}
+
+.message form{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.message form .my-input{
+	flex-basis: 40%;
+	margin-bottom: 18px;
+	margin-right: 25px;
+}
+.message form .my-text{
+	flex-basis: 70%;
+	margin-bottom: 18px;
+}
+.message form .send-bt{
+	flex-basis: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.message form .send-bt .send-bt-1{
+	flex-basis: 40%;
+}
+.message form .send-bt .send-bt-1:hover{
+	transform: scale(1.1);
+}
+.message form .send-bt .send-bt-2:hover{
+	transform: scale(1.1);
+}
+.message form .send-bt .send-bt-2{
+	flex-basis: 40%;
+}
+
+.message form .send-bt .send-bt-1 input{
+	width: 80px;
+	height: 30px;
+	border: none;
+	background: #00cca3;
+	color: #fff;
+	font-size: 15px;
+	line-height: 1.2em;
+	letter-spacing: 1px;
+	border-radius: 3px;
+}
+.message form .send-bt .send-bt-2 input{
+	width: 80px;
+	height: 30px;
+	border: none;
+	background: #ff3333;
+	color: #fff;
+	font-size: 15px;
+	line-height: 1.2em;
+	letter-spacing: 1px;
+	border-radius: 3px;
+}
+
+.message form .my-input input{
+	border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    /*border-bottom-style: groove;*/
+    padding: 5px;
+    outline: none;
+    border-bottom: solid #00cca3;
+}
+.message form .my-text textarea{
+	border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    /*border-bottom-style: groove;*/
+    padding: 5px;
+    outline: none;
+    width: 100%;
+    height: 80px;
+    border-bottom: solid #00cca3;
+}
+
+.contact{
+	flex-basis: 45%;
+	background-color: #00cca3;
+	/*min-width: 400px;*/
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	box-shadow: 5px 5px 5px 3px #e6e6e6;
+	border-radius: 5px;
+}
+
+.contact .call{
+	/*flex-basis: 90%;*/
+	/*margin-left: 30%;*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.contact .call:hover{
+	transform: scale(1.1);
+}
+
+.contact .call i{
+	margin-bottom: 7px;
+	font-size: 23px;
+}
+
+.contact .call a{
+	text-decoration: none;
+	color: #fff;
+}
+
+
+
+@media only screen and (max-width: 1000px){
+	.about .image{
+		flex-basis: 90%;
+	}
+	.about-content{
+		flex-basis: 60%;
+	}
+}
+
+@media only screen and (max-width: 800px){
+	.message{
+		flex-basis: 90%;
+		max-width: 500px;
+	}
+
+	.contact{
+		flex-basis: 90%;
+		margin-top: 20px;
+		/*min-width: 400px;*/
+	}
+}
+
+@media only screen and (max-width: 700px){
+	.sidebar{
+		left: -230px;
+		z-index: 2;
+	}
+
+	.content-area,
+	.home-pg{
+		margin-left: auto;
+		margin-right:  auto;
+		/*width: 80%;*/
+	}
+	.about-content{
+		flex-basis: 100%;
+	}
+}
+
+@media only screen and (max-width: 695px){
+	.message{
+		flex-basis: 90%;
+		max-width: 400px;
+	}
+	.message form .my-input{
+		flex-basis: 90%;
+		margin-right: 5px;
+	}
+	.message form .my-input input{
+		width: 300px;
+	}
+
+	.message h4{
+		font-size: 20px;
+	}
+
+	.message form .send-bt .send-bt-1{
+		flex-basis: 40%;
+	}
+	.message form .send-bt .send-bt-2{
+		flex-basis: 40%;
+	}
+
+	.message form .send-bt .send-bt-1 input{
+		width: 80px;
+		height: 20px;
+		font-size: 10px;
+	}
+	.message form .send-bt .send-bt-2 input{
+		width: 80px;
+		height: 20px;
+		font-size: 10px;
+	}
+
+	.contact .call i{
+		font-size: 17px;
+	}
+}
+
+@media only screen and (max-width: 570px){
+	.about-content .buttons button{
+		width: 50px;
+		font-size: 12px;
+	}
+
+	.diva{
+		font-size: 13px;
+	}
+
+	.diva .about-p-2{
+		font-size: 13px;
+	}
+
+	.diva .profile p {
+		font-size: 13px;
+	}
+
+	.diva .progress-div label{
+		font-size: 13px;
+	}
+}
+
+
+
+
+
+	
